@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class BookMain {
 
 	public static void main(String[] args) {
-		// [인터페이스 개념 포인트 1]
 		// BookService는 인터페이스고, BookServiceImpl은 그 구현 클래스.
 		// 인터페이스 타입(왼쪽)으로 선언하고, 구현체(new BookServiceImpl())를 연결하는 것이 "업캐스팅"
 		// → 이렇게 하면 유지보수가 유리함 (다른 구현체로 교체 가능)
@@ -42,9 +41,11 @@ public class BookMain {
 					String bookAuthor = scanner.nextLine();
 
 					// Book 객체 생성 (DTO 또는 VO로 사용됨)
-					Book book = new Book(bookId, bookTitle, bookAuthor);
+					Book book = new Book(bookId, bookTitle, bookAuthor); 
+					// 생성자로 입력받은 정보를 가진 객체 선언 후 저장
+					// getter setter, private 접근 제한자로 보호
+					
 
-					// [인터페이스 개념 포인트 2]
 					// bookService는 BookService 인터페이스 타입이지만,
 					// 실제 동작은 BookServiceImpl 클래스에 정의된 addBook() 메소드가 실행됨
 					// → 인터페이스 기반 다형성
@@ -56,11 +57,10 @@ public class BookMain {
 				case 2:
 					System.out.println("***** 도서 목록 *****");
 
-					// [인터페이스 개념 포인트 3]
 					// 인터페이스에 정의된 getAllBooks()는 구현체에서 오버라이딩하여 구현됨
 					// 실제 로직은 BookServiceImpl의 getAllBooks()에서 처리함
 					for (Book bookTemp : bookService.getAllBooks()) {
-						System.out.println(bookTemp.getTitle() + " / " + bookTemp.getAuthor());
+						System.out.println(bookTemp.getTitle() + " / " + bookTemp.getAuthor() + " / " + bookTemp.getId());
 					}
 					break;
 

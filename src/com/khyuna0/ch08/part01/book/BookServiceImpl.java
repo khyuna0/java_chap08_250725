@@ -6,6 +6,7 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
 	
 	private List<Book> books = new ArrayList<Book>();
+	// <List> -> 컬렉션. 객체들의 목록
 	
 	@Override
 	public void addBook(Book book) {
